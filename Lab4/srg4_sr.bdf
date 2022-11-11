@@ -34,10 +34,11 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -112 576 -56 600))
 )
 (pin
 	(input)
-	(rect 168 392 336 408)
+	(rect 72 392 240 408)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
 	(text "Din" (rect 5 0 20 17)(font "Intel Clear" ))
 	(pt 168 8)
@@ -50,6 +51,7 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 16 408 72 432))
 )
 (pin
 	(input)
@@ -66,6 +68,7 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 120 528 176 552))
 )
 (pin
 	(input)
@@ -82,6 +85,7 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 112 312 168 336))
 )
 (pin
 	(output)
@@ -98,6 +102,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1272 288 1328 312))
 )
 (pin
 	(output)
@@ -114,6 +119,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1272 240 1328 264))
 )
 (pin
 	(output)
@@ -130,6 +136,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1272 256 1328 280))
 )
 (pin
 	(output)
@@ -146,6 +153,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1272 272 1328 296))
 )
 (symbol
 	(rect 432 352 528 480)
@@ -367,13 +375,38 @@ refer to the applicable agreement for further details.
 	)
 	(parameter
 		"stages"
-		"16"
+		"26"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 168 64))
 	)
-	(annotation_block (parameter)(rect 192 664 368 704))
+	(annotation_block (parameter)(rect 192 664 361 702))
+)
+(symbol
+	(rect 288 384 336 416)
+	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
+	(text "inst4" (rect 3 21 25 38)(font "Intel Clear" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 13 16))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(line (pt 39 16)(pt 48 16))
+	)
+	(drawing
+		(line (pt 13 25)(pt 13 7))
+		(line (pt 13 7)(pt 31 16))
+		(line (pt 13 25)(pt 31 16))
+		(circle (rect 31 12 39 20))
+	)
 )
 (connector
 	(pt 432 416)
@@ -474,10 +507,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 424 304)
 	(pt 576 304)
-)
-(connector
-	(pt 432 400)
-	(pt 336 400)
 )
 (connector
 	(pt 920 520)
@@ -610,6 +639,14 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 376 568)
 	(pt 376 584)
+)
+(connector
+	(pt 240 400)
+	(pt 288 400)
+)
+(connector
+	(pt 336 400)
+	(pt 432 400)
 )
 (junction (pt 720 568))
 (junction (pt 736 304))
