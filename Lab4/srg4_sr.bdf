@@ -21,9 +21,9 @@ refer to the applicable agreement for further details.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect 168 560 336 576)
+	(rect -56 560 112 576)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "Clock" (rect 5 0 34 12)(font "Arial" ))
+	(text "Clock" (rect 5 0 33 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 168 392 336 408)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "Din" (rect 5 0 21 17)(font "Intel Clear" ))
+	(text "Din" (rect 5 0 20 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -55,7 +55,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 176 512 344 528)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "CLEAR" (rect 5 0 42 12)(font "Arial" ))
+	(text "CLEAR" (rect 5 0 41 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -71,7 +71,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 168 296 336 312)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "PRESET" (rect 5 0 43 17)(font "Intel Clear" ))
+	(text "PRESET" (rect 5 0 42 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -85,9 +85,57 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1096 376 1272 392)
+	(rect 1096 272 1272 288)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "Dout" (rect 90 0 113 12)(font "Arial" ))
+	(text "Q3" (rect 90 0 104 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 1096 224 1272 240)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "Q0" (rect 90 0 104 17)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 1096 240 1272 256)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "Q1" (rect 90 0 104 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 1096 256 1272 272)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "Q2" (rect 90 0 104 17)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -299,9 +347,33 @@ refer to the applicable agreement for further details.
 		(rectangle (rect 16 16 80 112))
 	)
 )
-(connector
-	(pt 376 416)
-	(pt 376 568)
+(symbol
+	(rect 168 552 352 632)
+	(text "clock_divider" (rect 5 0 69 12)(font "Arial" ))
+	(text "Bob" (rect 8 64 26 76)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CLK_IN" (rect 0 0 38 12)(font "Arial" ))
+		(text "CLK_IN" (rect 21 27 59 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 184 32)
+		(output)
+		(text "CLK_OUT" (rect 0 0 49 12)(font "Arial" ))
+		(text "CLK_OUT" (rect 122 27 171 39)(font "Arial" ))
+		(line (pt 184 32)(pt 168 32))
+	)
+	(parameter
+		"stages"
+		"16"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 168 64))
+	)
+	(annotation_block (parameter)(rect 192 664 368 704))
 )
 (connector
 	(pt 432 416)
@@ -316,20 +388,12 @@ refer to the applicable agreement for further details.
 	(pt 560 568)
 )
 (connector
-	(pt 336 568)
-	(pt 376 568)
-)
-(connector
 	(pt 744 416)
 	(pt 720 416)
 )
 (connector
 	(pt 720 416)
 	(pt 720 568)
-)
-(connector
-	(pt 376 568)
-	(pt 560 568)
 )
 (connector
 	(pt 904 416)
@@ -340,16 +404,8 @@ refer to the applicable agreement for further details.
 	(pt 904 416)
 )
 (connector
-	(pt 560 568)
-	(pt 720 568)
-)
-(connector
 	(pt 528 384)
 	(pt 552 384)
-)
-(connector
-	(pt 552 384)
-	(pt 552 400)
 )
 (connector
 	(pt 584 400)
@@ -360,20 +416,12 @@ refer to the applicable agreement for further details.
 	(pt 712 384)
 )
 (connector
-	(pt 712 384)
-	(pt 712 400)
-)
-(connector
 	(pt 744 400)
 	(pt 712 400)
 )
 (connector
 	(pt 840 384)
 	(pt 888 384)
-)
-(connector
-	(pt 888 384)
-	(pt 888 400)
 )
 (connector
 	(pt 928 400)
@@ -452,7 +500,6 @@ refer to the applicable agreement for further details.
 	(pt 576 432)
 )
 (connector
-	(text "<<__$DEF_ALIAS173>>" (rect 560 499 577 611)(font "Intel Clear" )(vertical)(invisible))
 	(pt 576 432)
 	(pt 576 520)
 )
@@ -485,11 +532,85 @@ refer to the applicable agreement for further details.
 	(pt 920 520)
 )
 (connector
-	(pt 1024 384)
-	(pt 1096 384)
+	(pt 1032 384)
+	(pt 1032 280)
 )
-(junction (pt 376 568))
-(junction (pt 560 568))
+(connector
+	(pt 1024 384)
+	(pt 1032 384)
+)
+(connector
+	(pt 1032 280)
+	(pt 1096 280)
+)
+(connector
+	(pt 888 264)
+	(pt 1096 264)
+)
+(connector
+	(pt 888 264)
+	(pt 888 384)
+)
+(connector
+	(pt 888 384)
+	(pt 888 400)
+)
+(connector
+	(pt 712 248)
+	(pt 1096 248)
+)
+(connector
+	(pt 712 248)
+	(pt 712 384)
+)
+(connector
+	(pt 712 384)
+	(pt 712 400)
+)
+(connector
+	(pt 552 384)
+	(pt 552 400)
+)
+(connector
+	(pt 1096 232)
+	(pt 552 232)
+)
+(connector
+	(pt 552 232)
+	(pt 552 384)
+)
+(connector
+	(pt 560 568)
+	(pt 720 568)
+)
+(connector
+	(pt 376 568)
+	(pt 560 568)
+)
+(connector
+	(pt 112 568)
+	(pt 152 568)
+)
+(connector
+	(pt 152 568)
+	(pt 152 584)
+)
+(connector
+	(pt 152 584)
+	(pt 168 584)
+)
+(connector
+	(pt 376 584)
+	(pt 352 584)
+)
+(connector
+	(pt 376 416)
+	(pt 376 568)
+)
+(connector
+	(pt 376 568)
+	(pt 376 584)
+)
 (junction (pt 720 568))
 (junction (pt 736 304))
 (junction (pt 576 304))
@@ -497,3 +618,8 @@ refer to the applicable agreement for further details.
 (junction (pt 576 520))
 (junction (pt 424 520))
 (junction (pt 736 520))
+(junction (pt 888 384))
+(junction (pt 712 384))
+(junction (pt 552 384))
+(junction (pt 560 568))
+(junction (pt 376 568))
