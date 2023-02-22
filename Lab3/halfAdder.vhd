@@ -22,3 +22,6 @@ begin
     S <= A xor B;
 
 end architecture;
+
+
+

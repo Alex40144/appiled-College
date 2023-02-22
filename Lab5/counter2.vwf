@@ -1,16 +1,16 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Counters -c Counters --vector_source="C:/Users/alex/Desktop/repos/appiled-College/Lab5/Waveform.vwf" --testbench_file="C:/Users/alex/Desktop/repos/appiled-College/Lab5/simulation/qsim/Waveform.vwf.vt"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off Counters -c Counters --vector_source="C:/Users/alex/Desktop/repos/appiled-College/Lab5/Waveform.vwf" --testbench_file="C:/Users/alex/Desktop/repos/appiled-College/Lab5/simulation/qsim/Waveform.vwf.vt"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/Users/alex/Desktop/repos/appiled-College/Lab5/simulation/qsim/" Counters -c Counters</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/Users/alex/Desktop/repos/appiled-College/Lab5/simulation/qsim/" Counters -c Counters</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Counters -c Counters --vector_source="C:/Users/alex/Desktop/repos/appiled-College/Lab5/counter2.vwf" --testbench_file="C:/Users/alex/Desktop/repos/appiled-College/Lab5/simulation/qsim/counter2.vwf.vht"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Counters -c Counters --vector_source="C:/Users/alex/Desktop/repos/appiled-College/Lab5/counter2.vwf" --testbench_file="C:/Users/alex/Desktop/repos/appiled-College/Lab5/simulation/qsim/counter2.vwf.vht"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/alex/Desktop/repos/appiled-College/Lab5/simulation/qsim/" Counters -c Counters</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/alex/Desktop/repos/appiled-College/Lab5/simulation/qsim/" Counters -c Counters</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
-vlog -work work Counters.vo
-vlog -work work Waveform.vwf.vt
-vsim -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.Counter1_vlg_vec_tst
+vcom -work work Counters.vho
+vcom -work work counter2.vwf.vht
+vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Counter2_vhd_vec_tst
 vcd file -direction Counters.msim.vcd
-vcd add -internal Counter1_vlg_vec_tst/*
-vcd add -internal Counter1_vlg_vec_tst/i1/*
+vcd add -internal Counter2_vhd_vec_tst/*
+vcd add -internal Counter2_vhd_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -20,16 +20,15 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
-vlog -work work Counters.vo
-vlog -work work Waveform.vwf.vt
-vsim -novopt -c -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.Counter1_vlg_vec_tst
+vcom -work work Counters.vho
+vcom -work work counter2.vwf.vht
+vsim -novopt -c -t 1ps -sdfmax Counter2_vhd_vec_tst/i1=Counters_vhd.sdo -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Counter2_vhd_vec_tst
 vcd file -direction Counters.msim.vcd
-vcd add -internal Counter1_vlg_vec_tst/*
-vcd add -internal Counter1_vlg_vec_tst/i1/*
+vcd add -internal Counter2_vhd_vec_tst/*
+vcd add -internal Counter2_vhd_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -39,9 +38,8 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
-
 </modelsim_script_timing>
-<hdl_lang>verilog</hdl_lang>
+<hdl_lang>vhdl</hdl_lang>
 </simulation_settings>*/
 /*
 WARNING: Do NOT edit the input and output ports in this file in a text
@@ -157,15 +155,12 @@ TRANSITION_LIST("Clear")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 75.0;
 		NODE
 		{
-			REPEAT = 9;
+			REPEAT = 10;
 			LEVEL 0 FOR 1.0;
 			LEVEL 1 FOR 99.0;
 		}
-		LEVEL 0 FOR 1.0;
-		LEVEL 1 FOR 24.0;
 	}
 }
 
@@ -176,9 +171,9 @@ TRANSITION_LIST("Clock")
 		REPEAT = 1;
 		NODE
 		{
-			REPEAT = 1000;
-			LEVEL 0 FOR 0.5;
-			LEVEL 1 FOR 0.5;
+			REPEAT = 500;
+			LEVEL 0 FOR 1.0;
+			LEVEL 1 FOR 1.0;
 		}
 	}
 }
@@ -224,7 +219,7 @@ TRANSITION_LIST("Set")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 23.0;
+		LEVEL 1 FOR 75.0;
 		NODE
 		{
 			REPEAT = 9;
@@ -232,7 +227,7 @@ TRANSITION_LIST("Set")
 			LEVEL 1 FOR 99.0;
 		}
 		LEVEL 0 FOR 1.0;
-		LEVEL 1 FOR 76.0;
+		LEVEL 1 FOR 24.0;
 	}
 }
 
@@ -266,7 +261,7 @@ DISPLAY_LINE
 DISPLAY_LINE
 {
 	CHANNEL = "Q";
-	EXPAND_STATUS = COLLAPSED;
+	EXPAND_STATUS = EXPANDED;
 	RADIX = Unsigned;
 	TREE_INDEX = 3;
 	TREE_LEVEL = 0;
@@ -275,7 +270,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "Q0";
+	CHANNEL = "Q3";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 4;
@@ -285,7 +280,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "Q1";
+	CHANNEL = "Q2";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 5;
@@ -295,7 +290,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "Q2";
+	CHANNEL = "Q1";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 6;
@@ -305,7 +300,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "Q3";
+	CHANNEL = "Q0";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 7;

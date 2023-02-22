@@ -18,14 +18,14 @@
 #
 # Quartus Prime
 # Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-# Date created = 18:57:48  October 25, 2022
+# Date created = 07:39:56  December 15, 2022
 #
 # -------------------------------------------------------------------------- #
 #
 # Notes:
 #
 # 1) The default values for assignments are stored in the file:
-#		Lab2_assignment_defaults.qdf
+#		Lab7_assignment_defaults.qdf
 #    If this file doesn't exist, see file:
 #		assignment_defaults.qdf
 #
@@ -38,40 +38,29 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CEBA4F23C7
-set_global_assignment -name TOP_LEVEL_ENTITY FullAdder2
+set_global_assignment -name TOP_LEVEL_ENTITY CounterI
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:57:48  OCTOBER 25, 2022"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "07:39:56  DECEMBER 15, 2022"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
-set_global_assignment -name BDF_FILE HalfAdder.bdf
-set_global_assignment -name BDF_FILE FullAdder4.bdf
-set_global_assignment -name BDF_FILE FullAdder2.bdf
-set_global_assignment -name BDF_FILE FullAdder.bdf
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VHDL_FILE Clock_Divider.vhd
+set_global_assignment -name VHDL_FILE counter.vhd
+set_global_assignment -name VHDL_FILE DFlipFlop.vhd
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
-set_location_assignment PIN_U13 -to a0
-set_location_assignment PIN_T12 -to a1
-set_location_assignment PIN_AB15 -to a2
-set_location_assignment PIN_AA13 -to a3
-set_location_assignment PIN_V13 -to b0
-set_location_assignment PIN_AA15 -to b1
-set_location_assignment PIN_AA14 -to b2
-set_location_assignment PIN_AB13 -to b3
-set_location_assignment PIN_T13 -to Cin
-set_location_assignment PIN_N1 -to Coun
-set_location_assignment PIN_L1 -to S0
-set_location_assignment PIN_L2 -to S1
-set_location_assignment PIN_U1 -to S2
-set_location_assignment PIN_U2 -to S3
-set_global_assignment -name ENABLE_SIGNALTAP OFF
-set_global_assignment -name USE_SIGNALTAP_FILE stp1.stp
-set_global_assignment -name SIGNALTAP_FILE stp1.stp
-set_location_assignment PIN_M9 -to CLK
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
+set_global_assignment -name BDF_FILE CounterI.bdf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_M9 -to clock
+set_location_assignment PIN_L1 -to Q0
+set_location_assignment PIN_L2 -to Q1
+set_location_assignment PIN_U1 -to Q2
+set_location_assignment PIN_U2 -to Q3
+set_location_assignment PIN_N1 -to Q4
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
